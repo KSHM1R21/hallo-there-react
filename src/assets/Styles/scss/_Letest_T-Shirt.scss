@@ -1,0 +1,221 @@
+.letest-tshirt {
+    // font-family: "Poppins", sans-serif;
+    // font-family: "Open Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+    height: auto;
+    max-height: 500px;
+    // background-color: rgb(19, 19, 19);
+    margin-bottom: 40px;
+    @include flex-between();
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    transition: all ease-in-out 0.2s;
+
+    .card {
+        transition: all ease-in-out 0.2s;
+        position: relative;
+        // flex-grow: 1;
+        // flex-shrink: 1;
+        width: 100%;
+        max-width: 383.83px;
+        min-width: 211px;
+        height: auto;
+        // max-height: 298px;
+        max-height: 500px;
+        background-color: $mercury;
+        // background-color: $pure;
+        // background-color: rgb(255, 140, 140);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        .imgBox {
+            width: 100%;
+            height: 70%;
+            img {
+                width: 100%;
+                // max-width: 248px;
+                height: auto;
+                height: 100%;
+                // max-height: 70%;
+                object-fit: contain;
+            }
+
+            .s-card-overlay {
+                position: absolute;
+                top: 0;
+                padding: 20px;
+                height: 70%;
+                width: 100%;
+                // background-color: cadetblue;
+                display: flex;
+                flex-direction: column;
+                // align-items: flex-end;
+                justify-content: space-between;
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+
+                    span {
+                        display: block;
+                        color: $pure;
+                        font-size: 13px;
+                        font-weight: 600;
+                        @include flex-center();
+                        width: 37px;
+                        height: 24px;
+                        background-color: $dark;
+                        box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                        margin-bottom: 10px;
+                    }
+
+                    .fav {
+                        width: 35px;
+                        height: 35px;
+                        background-color: $pure;
+                        @include flex-center();
+                        box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                        cursor: pointer;
+
+                        i {
+                            color: $dark;
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+                .bottom {
+                    color: $dark;
+
+                    .cart {
+                        opacity: 0;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        width: 100%;
+                        height: 40px;
+                        background-color: $pure;
+                        @include flex-center();
+                        box-shadow: (0px 5px 10px rgba(0, 0, 0, 0.082));
+                        font-size: 16px;
+                        font-weight: 600;
+                        border: 1px solid rgb(179, 179, 179);
+                        // border-radius: 3px;
+                        color: $dark;
+                        &:hover {
+                            border: 1px solid $gray;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                        }
+
+                        i {
+                            margin-right: 10px;
+                            font-size: 16px;
+                            // display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card-text-content {
+            width: 100%;
+            min-height: 30%;
+            height: auto;
+            background-color: $pure;
+            // background-color: rgb(255, 151, 151);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+
+            .brand {
+                color: $dark;
+                font-size: 18px;
+                // font-size: 0.75vw;
+                font-weight: 700;
+            }
+            p {
+                font-size: 17px;
+                // font-size: 0.69vw;
+                font-weight: 500;
+                color: $gray;
+                margin-bottom: 5px;
+            }
+
+            .lower-content {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                // background-color: rgb(251, 170, 170);
+
+                .price {
+                    // display: flex;
+                    color: $dark;
+                    font-size: 18px;
+                    // font-size: 0.75vw;
+
+                    h4 {
+                        // margin-right: 5px;
+                        font-weight: 700;
+                    }
+
+                    span {
+                        text-decoration: line-through underline;
+                        font-weight: 700;
+                        margin-right: 5px;
+                    }
+
+                    .mainPrice {
+                        text-decoration: underline;
+                    }
+
+                    .discount {
+                        // margin-left: 5px;
+                        font-size: 12px;
+                        text-decoration: none;
+                        font-weight: 700;
+                        color: rgb(253, 105, 105);
+                    }
+                }
+            }
+        }
+
+        &:hover .s-card-overlay .bottom .cart {
+            opacity: 1;
+            animation: slideUp 0.3s ease-in-out forwards;
+        }
+    }
+}
+
+//? < =============== MediaQuery's =============== > //
+
+@media screen and(max-width:1105px) {
+    .letest-tshirt {
+        .card {
+            .card-text-content {
+                padding: 10px;
+
+                .brand {
+                    font-size: 14px;
+                }
+                p {
+                    font-size: 13px;
+                }
+
+                .lower-content {
+                    .price {
+                        font-size: 14px;
+
+                        .discount {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

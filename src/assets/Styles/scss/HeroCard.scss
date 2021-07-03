@@ -1,0 +1,91 @@
+@mixin heroCard {
+    #heroCard {
+        position: relative;
+        width: 100%;
+        max-width: 519px;
+        height: auto;
+        max-height: 690px;
+        background-color: $mercury;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        // margin-right: 20px;
+        transition: all ease-in-out 0.1s;
+
+        &:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        .heroImgBox {
+            width: 100%;
+            height: 70%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .cardOverlay {
+                position: absolute;
+                top: 0;
+                padding: 20px;
+
+                h4 {
+                    color: $pure;
+                    padding: 4px 8px;
+                    background-color: $primery;
+                    font-weight: 700;
+                    font-size: 18px;
+                    box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                }
+            }
+        }
+
+        .textContent {
+            width: 100%;
+            height: 30%;
+            background-color: $pure;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upperPart {
+                .b-title {
+                    font-size: 19px;
+                    font-weight: 800;
+                    color: $dark;
+                }
+
+                p {
+                    font-size: 19px;
+                    color: $gray;
+                    font-weight: 600;
+                }
+            }
+
+            .lowerPart {
+                display: flex;
+                align-items: center;
+
+                h4 {
+                    margin-right: 20px;
+                    font-size: 19px;
+                    font-weight: 800;
+                    color: $dark;
+                    text-decoration: underline;
+                    span {
+                        text-decoration: line-through underline;
+                    }
+
+                    .b-discount {
+                        text-decoration: none !important;
+                        font-size: 14px;
+                        color: rgb(252, 115, 115);
+                    }
+                }
+            }
+        }
+    }
+}

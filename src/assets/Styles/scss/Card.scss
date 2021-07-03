@@ -1,0 +1,12 @@
+// @mixin smallCard($bg) {
+// }
+
+.dummyCard {
+    width: 100%;
+    max-width: 249px;
+    height: auto;
+    // max-height: 298px;
+    max-height: 335px;
+    // background-color: rgb(166, 248, 255);
+    pointer-events: none;
+}

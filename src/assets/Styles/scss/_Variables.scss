@@ -1,0 +1,19 @@
+$pure: #eeeeee;
+$mercury: #e6e6e6;
+$dark: #393e46;
+$primery: #00adb5;
+$primery-alt: #028990;
+$accent: #aad8d3;
+$gray: rgba(57, 62, 70, 0.8);
+$white: #eceef0;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+}

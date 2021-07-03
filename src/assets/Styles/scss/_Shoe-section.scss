@@ -1,0 +1,389 @@
+.shoe-banner {
+    width: 100%;
+    height: auto;
+    // margin: 40px auto ;
+    margin-top: 40px !important;
+
+    img {
+        // display: none;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.shoeSection {
+    // background-color: rgb(250, 160, 160);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+    grid-row-gap: 30px;
+
+    // display: flex;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+
+    .card {
+        transition: all ease-in-out 0.2s;
+        font-family: "Open Sans", sans-serif;
+        position: relative;
+        width: 100%;
+        max-width: 249px;
+        height: auto;
+        max-height: 335px;
+        background-color: $white;
+        box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        .imgBox {
+            width: 100%;
+            height: 70%;
+            img {
+                width: 100%;
+                height: auto;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .s-card-overlay {
+                position: absolute;
+                top: 0;
+                padding: 10px;
+                height: 70%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+
+                    span {
+                        display: block;
+                        color: $pure;
+                        font-size: 10px;
+                        font-weight: 600;
+                        @include flex-center();
+                        width: 30px;
+                        height: 20px;
+                        background-color: $dark;
+                        box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                        margin-bottom: 10px;
+                    }
+
+                    .fav {
+                        width: 30px;
+                        height: 30px;
+                        background-color: $pure;
+                        @include flex-center();
+                        box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                        cursor: pointer;
+
+                        i {
+                            color: $dark;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .bottom {
+                    color: $dark;
+
+                    .cart {
+                        opacity: 0;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        width: 100%;
+                        height: 30px;
+                        background-color: $pure;
+                        @include flex-center();
+                        box-shadow: (0px 5px 10px rgba(0, 0, 0, 0.082));
+                        font-size: 14px;
+                        font-weight: 600;
+                        border: 1px solid rgb(179, 179, 179);
+                        // border-radius: 3px;
+                        color: $dark;
+                        &:hover {
+                            border: 1px solid $gray;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                        }
+
+                        i {
+                            margin-right: 10px;
+                            font-size: 14px;
+                            // display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card-text-content {
+            width: 100%;
+            min-height: 30%;
+            height: auto;
+            background-color: $pure;
+            // background-color: rgb(255, 151, 151);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+
+            .brand {
+                color: $dark;
+                font-size: 14px;
+                // font-size: 0.75vw;
+                font-weight: 700;
+            }
+            p {
+                // background-color: rgb(137, 224, 129);
+                font-size: 12px;
+                // font-size: 0.69vw;
+                font-weight: 600;
+                color: $gray;
+                margin-bottom: 5px;
+                min-height: 50px;
+                overflow-y: hidden;
+            }
+
+            .lower-content {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                // background-color: rgb(251, 170, 170);
+
+                .price {
+                    // display: flex;
+                    color: $dark;
+                    font-size: 14px;
+                    // font-size: 0.75vw;
+
+                    h4 {
+                        // margin-right: 5px;
+                        font-weight: 700;
+                    }
+
+                    span {
+                        text-decoration: line-through underline;
+                        font-weight: 700;
+                        margin-right: 5px;
+                    }
+
+                    .mainPrice {
+                        text-decoration: underline;
+                    }
+
+                    .discount {
+                        // margin-left: 5px;
+                        font-size: 10px;
+                        text-decoration: none;
+                        font-weight: 700;
+                        color: rgb(253, 105, 105);
+                    }
+                }
+            }
+        }
+
+        &:hover .s-card-overlay .bottom .cart {
+            opacity: 1;
+            animation: slideUp 0.3s ease-in-out forwards;
+        }
+    }
+}
+
+//? < =============== MediaQuery's =============== > //
+@media screen and(max-width: 1569px) {
+    .shoeSection {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media screen and(max-width: 1024px) {
+    .shoeSection {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        // background-color: rgb(255, 173, 173);
+
+        .card {
+            max-width: 249px;
+        }
+    }
+}
+
+@media screen and(max-width: 826px) {
+    .shoeSection {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+
+        .card {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 5px;
+
+            .s-card-overlay {
+                padding: 10px;
+
+                .top {
+                    span {
+                        font-size: 11px;
+                        font-weight: 600;
+                        width: 30px;
+                        height: 20px;
+                        margin-bottom: 5px;
+                    }
+
+                    .fav {
+                        width: 30px;
+                        height: 30px;
+                        background-color: $pure;
+                        @include flex-center();
+                        box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                        cursor: pointer;
+
+                        i {
+                            color: $dark;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+
+            .card-text-content {
+                padding: 10px;
+
+                .brand {
+                    color: $dark;
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+                p {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: $gray;
+                    margin-bottom: 15px;
+                }
+
+                .lower-content {
+                    .price {
+                        font-size: 14px;
+
+                        h4 {
+                            font-weight: 700;
+
+                            .discount {
+                                font-size: 11px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover .s-card-overlay .bottom .cart {
+                display: none;
+                opacity: 0;
+                animation: slideUp 0.3s ease-in-out forwards;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 500px) {
+    .shoeSection {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        .card {
+            width: 100%;
+            // max-width: 172px;
+            height: auto;
+            // max-height: 205px;
+            margin-bottom: 20px;
+            background: #eceef0;
+
+
+            .s-card-overlay {
+                padding: 10px;
+
+                .top {
+                    span {
+                        font-size: 8px;
+                        font-weight: 600;
+                        width: 26px;
+                        height: 16px;
+                        margin-bottom: 5px;
+                    }
+
+                    .fav {
+                        width: 30px !important;
+                        height: 30px !important;
+                        background-color: $pure;
+                        @include flex-center();
+                        box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.08));
+                        cursor: pointer;
+
+                        i {
+                            color: $dark;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .card-text-content {
+                padding: 10px;
+
+                .brand {
+                    color: $dark;
+                    font-size: 12px;
+                    font-weight: 700;
+                }
+                p {
+                    font-size: 11px;
+                    // font-size: 0.69vw;
+                    font-weight: 500;
+                    color: $gray;
+                    margin-bottom: 5px;
+                }
+
+                .lower-content {
+                    .price {
+                        color: $dark;
+                        font-size: 12px;
+
+                        h4 {
+                            font-weight: 700;
+
+                            .mainPrice {
+                                color: $dark;
+                                margin-right: 0;
+                            }
+
+                            .discount {
+                                font-size: 9px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover .s-card-overlay .bottom .cart {
+                display: none;
+                opacity: 0;
+                animation: slideUp 0.3s ease-in-out forwards;
+            }
+        }
+    }
+}

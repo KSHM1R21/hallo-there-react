@@ -1,0 +1,236 @@
+nav {
+    width: 100%;
+    background-color: $dark;
+    font-family: "Montserrat";
+
+    .nav {
+        height: 6.5vh;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // padding: 0 8%;
+
+        .logo {
+            letter-spacing: 0.25rem;
+            font-size: 25px;
+            font-weight: 700;
+
+            a {
+                text-decoration: none;
+                color: $accent;
+            }
+        }
+        //hallow from git
+
+        //hallow to git
+        .hamburger {
+            display: none;
+            color: $pure;
+        }
+
+        ul.nav-list {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-left: 2.5rem;
+                list-style-type: none;
+                position: relative;
+                padding: 20px 0;
+
+                a {
+                    text-decoration: none;
+                    color: $pure;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                }
+
+                &:nth-child(1) a {
+                    color: $accent;
+                    text-decoration: underline 0.125rem $pure;
+                    font-weight: 600;
+                    text-underline-offset: 0.1875rem;
+                }
+
+                &:nth-child(2) {
+                    position: relative;
+
+                    &:hover i {
+                        // transform: scaley(-1);
+                        // transform: rotateY(3.142rad);
+                        transform: rotate(180deg);
+                        opacity: 1;
+                    }
+
+                    a {
+                        display: flex;
+                        align-items: center;
+
+                        i {
+                            display: inline-block;
+                            margin-left: 0.375rem;
+                            font-size: 11px;
+                            opacity: 0.8;
+                            transition: all ease-in-out 0.3s;
+                        }
+                    }
+                }
+
+                &:nth-child(4) a#cart {
+                    display: flex;
+                    align-items: center;
+                    background-color: #464c55;
+                    padding: 6px 9px;
+                    border-radius: 2px;
+
+                    i {
+                        display: inline-block;
+                        margin-right: 0.375rem;
+                        font-size: 12px;
+                    }
+                }
+
+                .button {
+                    padding: 0.375rem 1.125rem;
+                    background-color: $primery;
+                    outline: none;
+                    border: none;
+                    border-radius: 0.125rem;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    color: $pure;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $primery-alt;
+                    }
+                }
+
+                ul.dropdown-list {
+                    opacity: 0;
+                    pointer-events: none;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 10px;
+                    width: max-content;
+                    display: block;
+                    background-color: $pure;
+                    border-radius: 6px;
+                    padding: 6px 16px;
+                    z-index: 999;
+                    position: absolute;
+                    left: 50%;
+                    transform: translatex(-50%);
+                    overflow: hidden;
+
+                    li {
+                        font-size: 14px;
+                        transition: all ease-in-out 0.3s;
+                        text-align: center;
+                        margin-left: 0;
+                        padding: 5px 0px;
+                        font-weight: 700;
+                        border-radius: 3px;
+
+                        &:hover {
+                            background-color: $primery;
+                        }
+
+                        &:hover a {
+                            color: $pure;
+                        }
+
+                        a {
+                            color: $dark;
+                            padding: 5px 12px;
+                            text-decoration: none;
+                            display: block;
+                        }
+                    }
+                }
+
+                &:hover .dropdown-list {
+                    opacity: 1;
+                    pointer-events: all;
+                    animation: moveUp 0.5s ease-in-out forwards;
+                }
+            }
+        }
+    }
+
+    @keyframes moveUp {
+        0% {
+            opacity: 0;
+            transform: translateX(-50%) translateY(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(-50%) translateY(10px);
+        }
+    }
+}
+
+//? < =============== MediaQuery's =============== > //
+
+@media screen and(max-width:700px) {
+    nav {
+        .nav {
+            // padding: 0 10px;
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .close {
+                font-size: 20px;
+            }
+
+            .logo {
+                font-size: 15px;
+                letter-spacing: 2px;
+            }
+
+            .unactive {
+                max-height: 0px;
+            }
+
+            .active {
+                max-height: 100vh;
+                display: flex;
+                justify-content: center;
+            }
+
+            ul.nav-list {
+                z-index: 99;
+                flex-direction: column;
+                position: absolute;
+                top: 6.5vh;
+                left: 50%;
+                transform: translatex(-50%);
+                background-color: $dark;
+
+                width: 100vw;
+                overflow: hidden;
+                transition: cubic-bezier(0.86, 0, 0.07, 1) 0.4s;
+
+                li {
+                    display: block;
+                    margin: 0;
+
+                    a {
+                        color: $pure;
+                        font-weight: 700;
+                        width: 100%;
+                        display: block;
+                        font-size: 13px;
+                    }
+
+                    button {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
