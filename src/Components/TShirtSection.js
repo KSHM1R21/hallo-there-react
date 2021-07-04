@@ -4,44 +4,45 @@ import Product from "./Product";
 const TShirtSection = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("/products")
+        fetch("/api/products")
             .then((response) => response.json())
             .then((products) => {
                 setProducts(products);
             });
     }, []);
-    // console.warn(data);
 
     return (
         <>
-            <h3 class="section-heading container">Best Deals on: T-Shirt's</h3>
+            <h3 className="section-heading container">
+                Best Deals on: T-Shirt's
+            </h3>
 
-            <section id="t-shirt-section" class="container">
+            <section id="t-shirt-section" className="container">
                 <div id="heroCard">
-                    <div class="heroImgBox">
+                    <div className="heroImgBox">
                         <img
                             src="/img/T-Shirt_Hero-Img.jpg"
                             alt="letest-T-Shirt"
                         />
 
-                        <div class="cardOverlay">
+                        <div className="cardOverlay">
                             <h4>BEST SELLING</h4>
                         </div>
                     </div>
 
-                    <div class="textContent">
-                        <div class="upperPart">
-                            <div class="b-title">Gymshark.</div>
+                    <div className="textContent">
+                        <div className="upperPart">
+                            <div className="b-title">Gymshark.</div>
                             <p>
                                 Full Sleeve Round Neck T-Shirt,Black Lorem ipsum
                                 dolor sit amet. | Gymshark
                             </p>
                         </div>
 
-                        <div class="lowerPart">
+                        <div className="lowerPart">
                             <h4>
                                 <span> ₹3000/- </span> ₹1500/-
-                                <span class="b-discount"> (50% OFF) </span>
+                                <span className="b-discount"> (50% OFF) </span>
                             </h4>
                         </div>
                     </div>
@@ -51,8 +52,8 @@ const TShirtSection = () => {
                     {products.map((product) => (
                         <Product key={Product._id} product={product} />
                     ))}
-                    <div class="dummyCard"></div>
-                    <div class="dummyCard"></div>
+                    <div className="dummyCard"></div>
+                    <div className="dummyCard"></div>
                 </div>
             </section>
         </>

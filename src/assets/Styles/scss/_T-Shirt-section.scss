@@ -78,18 +78,23 @@
                                     background-color: $dark;
                                     text-align: center;
                                     color: $pure;
-                                    font-size: 10px;
+                                    font-size: 9px;
                                     font-weight: 600;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
                                     text-shadow: (
                                         0px 4px 10px rgba(0, 0, 0, 0.08)
                                     );
-                                    // width: max-content;
-                                    // height: max-content;
                                     padding: 3px 5px;
                                     margin-bottom: 10px;
+                                    display: none;
+                                    text-align: center;
+                                }
+
+                                .old {
+                                    display: none;
+                                }
+
+                                .NEW {
+                                    display: block;
                                 }
                             }
 
@@ -190,9 +195,14 @@
                                 text-decoration: underline;
                             }
 
+                            .offPrice {
+                                color: $gray;
+                                font-weight: 600;
+                            }
+
                             .discount {
                                 // margin-left: 5px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 text-decoration: none;
                                 font-weight: 700;
                                 color: rgb(253, 105, 105);

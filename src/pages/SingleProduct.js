@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const SingleProduct = () => {
+    const [product, setProduct] = useState({});
+    const params = useParams();
+    console.log(params);
+
+    // useEffect(() => {
+    //     fetch(`/products/${params._id}`)
+    //         .then((res) => res.json())
+    //         .then((product) => {
+    //             setProduct(product);
+    //             console.log(product);
+    //         });
+    // }, []);
+
     return (
         <>
-            <h3 class="section-heading container"></h3>
+            <h3 className="section-heading container"></h3>
             <section className="container SingleProduct ">
                 <div className="img-box">
                     <div className="img-wraper">
@@ -40,7 +54,8 @@ const SingleProduct = () => {
 
                     <div className="size-box">
                         <h4 className="size-heading">
-                            SELECT SIZE <i class="ri-arrow-right-s-line"></i>
+                            SELECT SIZE{" "}
+                            <i className="ri-arrow-right-s-line"></i>
                         </h4>
 
                         <div className="sizes">
@@ -57,7 +72,7 @@ const SingleProduct = () => {
                             <i className="fas fa-cart-plus"></i> ADD TO CART
                         </button>
                         <button className="whishlist">
-                            <i class="ri-heart-line"></i>WISHLIST
+                            <i className="ri-heart-line"></i>WISHLIST
                         </button>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ const Footer = () => {
                     <div className="link-box">
                         <h4>MY ACCOUNT</h4>
                         <Link to="/">Login</Link>
-                        <Link href="#">Register</Link>
+                        <Link to="#">Register</Link>
                     </div>
                 </div>
 
