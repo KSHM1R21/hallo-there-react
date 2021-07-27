@@ -21,9 +21,7 @@ nav {
                 color: $accent;
             }
         }
-        //hallow from git
 
-        //hallow to git
         .hamburger {
             display: none;
             color: $pure;
@@ -59,7 +57,7 @@ nav {
                     &:hover i {
                         // transform: scaley(-1);
                         // transform: rotateY(3.142rad);
-                        transform: rotate(180deg);
+                        transform: rotate(-180deg);
                         opacity: 1;
                     }
 

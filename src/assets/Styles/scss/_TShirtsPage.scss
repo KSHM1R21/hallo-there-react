@@ -1,0 +1,19 @@
+.TShirtsPage {
+    margin-top: 20px;
+    .section-heading {
+        display: none;
+    }
+
+    .back-button {
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 20px;
+        color: $dark;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        i {
+            color: $gray;
+        }
+    }
+}

@@ -1,161 +1,174 @@
-.SingleProduct {
-    font-family: "Open Sans", sans-serif;
-    margin-top: 50px;
-    // background-color: rgb(255, 185, 185);
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: space-between;
+.ezpz {
+    margin: 20px 0px;
 
-    .img-box {
-        width: 60%;
+    .back-button {
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 20px;
+        color: $dark;
         display: flex;
-        flex-wrap: wrap;
-        overflow: hidden;
-        .img-wraper {
-            width: 45%;
-            overflow: hidden;
-            margin-right: 10px;
-            margin-bottom: 10px;
+        align-items: center;
+        cursor: pointer;
+        width: max-content;
 
-            img {
-                width: 100%;
-                height: 100%;
-                transform: scale(1);
-                transition: ease-in-out all 0.3s;
-            }
-
-            &:hover img {
-                transform: scale(1.1);
-            }
+        i {
+            color: $gray;
         }
     }
-    .product-data {
-        margin-left: 20px;
-        // margin-top: 40px;
-        .brand-name {
-            color: $dark;
-            font-weight: 700;
-            font-size: 27px;
-        }
-        .product-name {
-            color: $gray;
-            font-weight: 500;
-            font-size: 23px;
-            margin-bottom: 10px;
-        }
 
-        .price {
-            .main-price {
+    .SingleProduct {
+        font-family: "Open Sans", sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+
+        .img-box {
+            width: 60%;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            .img-wraper {
+                width: 45%;
+                overflow: hidden;
+                margin-right: 10px;
+                margin-bottom: 10px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    transform: scale(1);
+                    transition: ease-in-out all 0.3s;
+                }
+
+                &:hover img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .product-data {
+            margin-left: 20px;
+
+            .brand-name {
                 color: $dark;
                 font-weight: 700;
                 font-size: 27px;
-                margin-right: 10px;
             }
-            .off-price {
+            .product-name {
                 color: $gray;
                 font-weight: 500;
-                font-size: 20px;
-                margin-right: 10px;
-                text-decoration: line-through;
-            }
-            .discount {
-                color: rgb(251, 137, 137);
-                font-weight: 600;
-                font-size: 20px;
-            }
-        }
-
-        .taxation {
-            font-weight: 600;
-            color: rgb(85, 146, 85);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .size-box {
-            margin-bottom: 20px;
-            .size-heading {
+                font-size: 23px;
                 margin-bottom: 10px;
-                color: $dark;
-                font-weight: 600;
-                font-size: 15px;
+            }
 
-                display: flex;
-                align-items: center;
-                i {
-                    padding-top: 2px;
-                    // margin-left: 2px;
-                    font-size: 15px;
+            .price {
+                .main-price {
+                    color: $dark;
+                    font-weight: 700;
+                    font-size: 27px;
+                    margin-right: 10px;
+                }
+                .off-price {
+                    color: $gray;
+                    font-weight: 500;
+                    font-size: 20px;
+                    margin-right: 10px;
+                    text-decoration: line-through;
+                }
+                .discount {
+                    color: rgb(251, 137, 137);
+                    font-weight: 600;
+                    font-size: 20px;
                 }
             }
 
-            .sizes {
-                // background-color: rgb(122, 251, 122);
-                display: flex;
+            .taxation {
+                font-weight: 600;
+                color: rgb(85, 146, 85);
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
 
-                span {
-                    display: block;
-                    width: 50px;
-                    height: 50px;
-                    padding-top: 14px;
-                    margin-right: 10px;
-                    background-color: transparent;
-                    border-radius: 50%;
-                    text-align: center;
-                    font-weight: 700;
-                    font-size: 14px;
+            .size-box {
+                margin-bottom: 20px;
+                .size-heading {
+                    margin-bottom: 10px;
                     color: $dark;
-                    border: 1px solid $gray;
-                    transition: ease-in-out all 0.1s;
+                    font-weight: 600;
+                    font-size: 15px;
 
-                    &:hover,
-                    :active,
-                    :focus {
-                        cursor: pointer;
-                        border: 1px solid $primery-alt;
+                    display: flex;
+                    align-items: center;
+                    i {
+                        padding-top: 2px;
+                        font-size: 15px;
+                    }
+                }
+
+                .sizes {
+                    display: flex;
+
+                    span {
+                        display: block;
+                        width: 50px;
+                        height: 50px;
+                        padding-top: 14px;
+                        margin-right: 10px;
+                        background-color: transparent;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-weight: 700;
+                        font-size: 14px;
+                        color: $dark;
+                        border: 1px solid $gray;
+                        transition: ease-in-out all 0.1s;
+
+                        &:hover,
+                        :active,
+                        :focus {
+                            cursor: pointer;
+                            border: 1px solid $primery-alt;
+                        }
                     }
                 }
             }
-        }
 
-        .menu-buttons {
-            display: flex;
-
-            button {
-                background-color: $primery-alt;
-                padding: 15px 30px;
-                border: none;
-                border-radius: 4px;
-                font-size: 15px;
-                margin-right: 20px;
-                color: $pure;
-                font-weight: 600;
-                text-align: center;
-
-                i {
-                    font-size: 16px;
-                    margin-right: 5px;
-                }
-                &:hover {
-                    cursor: pointer;
-                    border: none;
-                    background-color: $primery;
-                    outline: none;
-                }
-            }
-
-            .whishlist {
-                background-color: transparent;
-                color: $dark;
-                border: 1px solid rgb(194, 194, 194);
-                outline: none;
+            .menu-buttons {
                 display: flex;
-                align-items: center;
 
-                &:hover {
-                    cursor: pointer;
-                    border: 1px solid $dark;
+                button {
+                    background-color: $primery-alt;
+                    padding: 15px 30px;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 15px;
+                    margin-right: 20px;
+                    color: $pure;
+                    font-weight: 600;
+                    text-align: center;
+
+                    i {
+                        font-size: 16px;
+                        margin-right: 5px;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        border: none;
+                        background-color: $primery;
+                        outline: none;
+                    }
+                }
+
+                .whishlist {
                     background-color: transparent;
+                    color: $dark;
+                    border: 1px solid rgb(194, 194, 194);
+                    outline: none;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px solid $dark;
+                        background-color: transparent;
+                    }
                 }
             }
         }

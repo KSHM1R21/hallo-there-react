@@ -1,27 +1,47 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const SingleProduct = () => {
     const [product, setProduct] = useState({});
     const params = useParams();
-    console.log(params);
+    const history = useHistory();
 
-    // useEffect(() => {
-    //     fetch(`/products/${params._id}`)
-    //         .then((res) => res.json())
-    //         .then((product) => {
-    //             setProduct(product);
-    //             console.log(product);
-    //         });
-    // }, []);
+    // console.log(params);
+
+    // OfferPrice Show and hide
+
+    // const [active, setActive] = useState(false);
+
+    // if (`${product.offPrice}` > 0) {
+    //     setActive(true);
+    // }
+
+    useEffect(() => {
+        fetch(`/api/products/${params._id}`)
+            .then((res) => res.json())
+            .then((product) => {
+                setProduct(product);
+                // console.log(product);
+            });
+    }, []);
 
     return (
-        <>
-            <h3 className="section-heading container"></h3>
+        <div className="ezpz">
+            <div className="container">
+                {" "}
+                <h3
+                    className="back-button"
+                    onClick={() => {
+                        history.goBack();
+                    }}
+                >
+                    <i className="ri-arrow-left-s-line"></i> Back
+                </h3>
+            </div>
             <section className="container SingleProduct ">
                 <div className="img-box">
                     <div className="img-wraper">
-                        <img src="/img/t-shirt-1.jpg" alt="" />
+                        <img src={product.image} alt="" />
                     </div>
                     <div className="img-wraper">
                         <img src="/img/single-page-img-5.jpg" alt="" />
@@ -38,23 +58,29 @@ const SingleProduct = () => {
                 </div>
 
                 <div className="product-data">
-                    <div className="brand-name">Gymshark.</div>
+                    <div className="brand-name">{product.brand}</div>
 
-                    <div className="product-name">
-                        Round Neck T-Shirt,Black | Gymshark.
-                    </div>
+                    <div className="product-name">{product.name}</div>
 
                     <div className="price">
-                        <span className="main-price">₹1500/-</span>
-                        <span className="off-price">₹3000/-</span>
-                        <span className="discount">(65% OFF)</span>
+                        <span className="main-price">₹{product.price}-</span>
+                        {/* {active ? (
+                            <span className="off-price">
+                                ₹{product.offPrice}/-
+                            </span>
+                        ) : (
+                            <span className="off-price"></span>
+                        )} */}
+                        <span className="off-price">₹{product.offPrice}/-</span>
+
+                        <span className="discount">{product.discount}</span>
                     </div>
 
                     <div className="taxation">inclusive of all taxes</div>
 
                     <div className="size-box">
                         <h4 className="size-heading">
-                            SELECT SIZE{" "}
+                            SELECT SIZE
                             <i className="ri-arrow-right-s-line"></i>
                         </h4>
 
@@ -77,7 +103,7 @@ const SingleProduct = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 

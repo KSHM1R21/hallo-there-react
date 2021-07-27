@@ -4,10 +4,8 @@
     // font-family: "Roboto", sans-serif;
     position: relative;
     height: auto;
-    // background-color: blanchedalmond;
     display: grid;
     grid-gap: 10px;
-    // grid-gap: 20px;
     grid-template-columns: 2fr 4fr;
     margin-top: 20px;
     @include heroCard();
@@ -79,7 +77,7 @@
                                     text-align: center;
                                     color: $pure;
                                     font-size: 9px;
-                                    font-weight: 600;
+                                    font-weight: 800;
                                     text-shadow: (
                                         0px 4px 10px rgba(0, 0, 0, 0.08)
                                     );
@@ -115,6 +113,32 @@
 
                         .bottom {
                             color: $dark;
+
+                            .cart-clicked {
+                                background-color: rgb(221, 221, 221);
+                                opacity: 0;
+                                cursor: pointer;
+                                margin-top: 10px;
+                                width: 100%;
+                                height: 30px;
+                                @include flex-center();
+                                box-shadow: (0px 5px 10px rgba(0, 0, 0, 0.082));
+                                font-size: 14px;
+                                font-weight: 600;
+                                border: 1px solid rgb(179, 179, 179);
+                                color: $dark;
+                                &:hover {
+                                    border: 1px solid $gray;
+                                    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px
+                                            27px -5px,
+                                        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                                }
+
+                                i {
+                                    margin-right: 10px;
+                                    font-size: 14px;
+                                }
+                            }
 
                             .cart {
                                 opacity: 0;
@@ -158,7 +182,7 @@
                     .brand {
                         color: $dark;
                         font-size: 14px;
-                        font-weight: 700;
+                        font-weight: 800;
                     }
                     p {
                         font-size: 13px;
@@ -193,17 +217,19 @@
 
                             .mainPrice {
                                 text-decoration: underline;
+                                font-weight: 800;
                             }
 
                             .offPrice {
                                 color: $gray;
-                                font-weight: 600;
+                                font-weight: 500;
                             }
 
                             .discount {
                                 // margin-left: 5px;
                                 font-size: 12px;
                                 text-decoration: none;
+                                // font-style: italic;
                                 font-weight: 700;
                                 color: rgb(253, 105, 105);
                             }
@@ -212,6 +238,11 @@
                 }
 
                 &:hover .s-card-overlay .bottom .cart {
+                    opacity: 1;
+                    animation: slideUp 0.3s ease-in-out forwards;
+                }
+
+                &:hover .s-card-overlay .bottom .cart-clicked {
                     opacity: 1;
                     animation: slideUp 0.3s ease-in-out forwards;
                 }

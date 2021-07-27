@@ -1,9 +1,13 @@
 // import React from "react";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
+
+    const { cart } = useContext(CartContext);
+
     return (
         <>
             <nav>
@@ -49,10 +53,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        className="links"
-                                        to="#t-shirt-section"
-                                    >
+                                    <Link className="links" to="/TShirtsPage">
                                         T-Shirt's
                                     </Link>
                                 </li>
@@ -72,9 +73,9 @@ const Navbar = () => {
                             <Link to="/About">SERVICES</Link>
                         </li>
                         <li>
-                            <Link to="#" id="cart">
+                            <Link to="/Cart" id="cart">
                                 <i className="fas fa-shopping-cart"> </i>
-                                {/* {cart} */} 0
+                                {cart.totalItems}
                             </Link>
                         </li>
 

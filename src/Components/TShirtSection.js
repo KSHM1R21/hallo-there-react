@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Product from "./Product";
 
 const TShirtSection = () => {
+    // const { name } = useContext(CartContext);
+
     const [products, setProducts] = useState([]);
     useEffect(() => {
         fetch("/api/products")
@@ -50,7 +52,7 @@ const TShirtSection = () => {
 
                 <div id="small-cards">
                     {products.map((product) => (
-                        <Product key={Product._id} product={product} />
+                        <Product key={product._id} product={product} />
                     ))}
                     <div className="dummyCard"></div>
                     <div className="dummyCard"></div>

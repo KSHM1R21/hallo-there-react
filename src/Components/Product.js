@@ -1,14 +1,49 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../CartContext";
 
 const Product = (props) => {
-    // console.log(props);
+    const [isAdding, setIsAdding] = useState(false);
+    const { cart, setCart } = useContext(CartContext);
     const { product } = props;
+
+    const addToCart = (event, product) => {
+        event.preventDefault();
+        let _cart = { ...cart }; // { items: {} }
+
+        if (!_cart.items) {
+            _cart.items = {};
+        }
+        if (_cart.items[product._id]) {
+            _cart.items[product._id] += 1;
+        } else {
+            _cart.items[product._id] = 1;
+        }
+        if (!_cart.totalItems) {
+            _cart.totalItems = 0;
+        }
+        _cart.totalItems += 1;
+        setCart(_cart);
+        setIsAdding(true);
+        setTimeout(() => {
+            setIsAdding(false);
+        }, 1000);
+
+        // const cart = {
+        //     items: {
+        //         '60e1bec80822ea0c64d9337e': 2,
+        //         '60e1beee0822ea0c64d93381': 3
+        //     },
+        //     totalItems: 5
+        // }
+    };
+
+    // OfferPrice Show and hide
     let offPrice = false;
     if (`${product.offPrice}` > 0) {
         offPrice = true;
     }
-    const [active, setActive] = useState(offPrice);
+    const [active] = useState(offPrice);
 
     return (
         <>
@@ -37,9 +72,17 @@ const Product = (props) => {
                             </div>
 
                             <div className="bottom">
-                                <div className="cart">
+                                <div
+                                    disabled={isAdding}
+                                    className={`${
+                                        isAdding ? " cart-clicked" : "cart"
+                                    } 'cart'`}
+                                    onClick={(e) => {
+                                        addToCart(e, product);
+                                    }}
+                                >
                                     <i className="fas fa-cart-plus"></i>
-                                    Add To Cart
+                                    {isAdding ? "Added To Cart" : "Add To Cart"}
                                 </div>
                             </div>
                         </div>
@@ -54,6 +97,10 @@ const Product = (props) => {
                         <div className="lower-content">
                             <div className="price">
                                 <h4>
+                                    <span className="mainPrice">
+                                        ₹{product.price}/-
+                                    </span>
+
                                     {active ? (
                                         <span className="offPrice">
                                             ₹{product.offPrice}/-
@@ -61,9 +108,7 @@ const Product = (props) => {
                                     ) : (
                                         <span className="offPrice"></span>
                                     )}
-                                    <span className="mainPrice">
-                                        ₹{product.price}/-
-                                    </span>
+
                                     <span className="discount">
                                         {product.discount}
                                     </span>
